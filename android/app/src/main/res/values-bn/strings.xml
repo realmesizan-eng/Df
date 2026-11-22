@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZENTRIX</string>
+    <string name="tagline">আপনার ডিজিটাল জগৎ। আমাদের সুরক্ষা।</string>
+    <string name="whatsapp_support">হোয়াটসঅ্যাপ সাপোর্ট (01747570144)</string>
+    <string name="home_dashboard">হোম সিকিউরিটি ড্যাশবোর্ড</string>
+    <string name="app_scanner">অ্যাপ ও পারমিশন স্ক্যানার</string>
+    <string name="mobile_banking">মোবাইল ব্যাংকিং সুরক্ষা</string>
+    <string name="phishing_checker">ফিশিং লিংক চেকার</string>
+    <string name="privacy_report">প্রাইভেসি, এসএমএস নিরাপত্তা ও রিপোর্ট</string>
+    <string name="subscription_plans">সাবস্ক্রিপশন প্ল্যান</string>
+    <string name="manual_payment">ম্যানুয়াল বিকাশ পেমেন্ট</string>
+    <string name="license_activation">লাইসেন্স অ্যাক্টিভেশন</string>
+    <string name="update_center">আপডেট সেন্টার</string>
+    <string name="settings_privacy">সেটিংস ও প্রাইভেসি নীতি</string>
+    <string name="pin_otp_warning">কখনোই আপনার বিকাশ বা নগদ পিন কিংবা ওটিপি কারো সাথে শেয়ার করবেন না। ZENTRIX কখনোই পিন বা ওটিপি সংগ্রহ করে না।</string>
+</resources>

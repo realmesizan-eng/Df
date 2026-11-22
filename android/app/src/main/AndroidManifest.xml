@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Required for HTTPS communication with ZENTRIX licensing, phishing, and update APIs -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Required strictly when user explicitly initiates a verified APK update from Update Center -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!--
+        Android 11+ Package Visibility:
+        Declaring specific queries allows checking official banking packages & browser apps
+        without broad unnecessary permissions. For full installed-app auditing on direct-APK builds,
+        QUERY_ALL_PACKAGES requires clear Google Play security-app declaration if published on Play.
+    -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <queries>
+        <!-- Official Bangladesh mobile financial service packages for authenticity verification -->
+        <package android:name="com.bKash.customerapp" />
+        <package android:name="com.konasl.nagad" />
+        <package android:name="com.whatsapp" />
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <!-- NOTE: ZENTRIX intentionally does NOT request READ_SMS, RECEIVE_SMS, READ_CONTACTS,
+         CAMERA, RECORD_AUDIO, or ACCESS_FINE_LOCATION to comply with Android & Google Play privacy policies. -->
+
+    <application
+        android:allowBackup="false"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:label="ZENTRIX"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="false"
+        android:theme="@android:style/Theme.Material.NoActionBar">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- FileProvider for verified APK update handoff to Android system PackageInstaller -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+</manifest>
